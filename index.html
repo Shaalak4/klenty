@@ -1,0 +1,611 @@
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<style>
+    
+@import url("https://fonts.googleapis.com/css?family=Roboto:300&display=swap");
+/* Color Variables */
+/* Styles */
+body {
+  background: #e3e5e6;
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px;
+}
+
+.text-red {
+  color: red !important;
+}
+
+.text-green {
+  color: blue !important;
+}
+
+.text-orange {
+  color: orange !important;
+}
+
+.text-blue {
+  color: blue !important;
+}
+
+/* buttons */
+.btn-red {
+  background: red;
+  color: white;
+  font-size: xx-small;
+}
+.btn-red:hover, .btn-red:focus {
+  background: #d60000;
+  color: white;
+}
+
+.btn-grayblue {
+  background: white;
+  color: white;
+  font-size: xx-small;
+}
+.btn-grayblue:hover, .btn-grayblue:focus {
+  background: white;
+  color: white;
+}
+
+/* Custom scrollbar */
+.main ::-webkit-scrollbar {
+  width: 5px;
+}
+.main ::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+.main ::-webkit-scrollbar-thumb {
+  background:#202020;
+  border-radius: 10px;
+}
+.main ::-webkit-scrollbar-thumb:hover {
+  background: #495871;
+}
+
+/* Left Menu */
+.left {
+  width: 57px;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #354052;
+  position: fixed;
+  transition: all 0.5s;
+}
+.left:hover {
+  width: 200px;
+}
+.left:hover ul li.menu-heading {
+  opacity: 1;
+}
+.left ul {
+  padding-left: 0;
+}
+.left ul li {
+  list-style-type: none;
+}
+.left ul li.active a {
+  background: #3333ff;
+  color: white;
+}
+.left ul li.active a:hover {
+  background: #1a1aff;
+}
+.left ul li a {
+  display: flex;
+  align-items: center;
+  background:#202020;
+  color: white;
+  padding: 15px 10px;
+  font-size: 13px;
+  width: 200px;
+  border-bottom: 1px solid black;
+}
+.left ul li a:hover {
+  background:#202020;
+  text-decoration: none;
+}
+.left ul li a:hover i.fa {
+  color: #3333ff;
+}
+.left ul li a:focus {
+  text-decoration: none;
+}
+.left ul li a i.fa {
+  width: 50px;
+  text-align: center;
+  padding-right: 15px;
+  transition: all 1s;
+}
+.left ul .menu-heading {
+  opacity: 0;
+  padding: 10px 5px 10px 10px;
+  color: #b3b300;
+  font-size: smaller;
+  border-bottom: 1px solid black;
+  transition: all 0.5s;
+}
+
+/* Right Content */
+.right {
+  transition: all 0.5s;
+  margin-left: 72px;
+  /* Overview */
+  /* Performance */
+  /* Analytics */
+  /* Landing */
+  /* Projects */
+  /* User Profile */
+  /* Candidates */
+  /* Invoices */
+  /* Single Invoice */
+  /* Browse */
+}
+.right #overview .header {
+  background: white;
+  display: block;
+  border: 1px solid #e6e6e6;
+  padding: 15px 15px;
+  margin-left: -15px;
+}
+.right #overview .header h4 {
+  display: inline-block;
+  color: #202020;
+}
+.right #overview .header ul {
+  right: 0;
+  left: inherit;
+  max-width: 350px;
+}
+.right #overview .header ul li {
+  display: inline-block;
+  padding-left: 20px;
+}
+.right #overview .header ul li .btn-group i.fa-user-o,
+.right #overview .header ul li .btn-group i.fa-bell-o {
+  color: #b3b3b3;
+  font-size: 24px;
+  cursor: pointer;
+}
+.right #overview .header ul li .btn-group i.fa-user-o:nth-child(1):after,
+.right #overview .header ul li .btn-group i.fa-bell-o:nth-child(1):after {
+  content: "3";
+  background: orange;
+  color: white;
+  font-size: small;
+  padding: 4px 7px;
+  border-radius: 50%;
+  position: absolute;
+  top: -8px;
+  left: 10px;
+}
+.right #overview .header ul li .btn-group i.fa-angle-down {
+  cursor: pointer;
+}
+.right #overview .header ul li .btn-group .dropdown-menu {
+  padding: 0;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li {
+  padding-left: 0;
+  display: block;
+  border-bottom: 1px solid #e6e6e6;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li:nth-child(1) .alert-card i.fa {
+  color: #3333ff;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li:nth-child(2) .alert-card i.fa {
+  color: #b300b3;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li:nth-child(3) .alert-card i.fa {
+  color: #354052;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li:last-child {
+  border-bottom: none;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li a {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li a:hover {
+  background: #e5e8ee;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li a .alert-card {
+  display: flex;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li a .alert-card img,
+.right #overview .header ul li .btn-group .dropdown-menu li a .alert-card i.fa {
+  height: 40px;
+  margin-right: 15px;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li a .alert-card p {
+  color: #354052;
+  margin-bottom: 0;
+}
+.right #overview .header ul li .btn-group .dropdown-menu li a .alert-card p small {
+  color: white;
+  width: 100%;
+  white-space: pre-line;
+}
+.right #overview .header ul li .dropdown-avatar img {
+  height: 35px;
+}
+.right #overview .header ul li .dropdown-avatar i.fa {
+  padding-left: 8px;
+}
+.right #overview .content {
+  padding: 0 15px 15px 15px;
+}
+.right #overview .content .row.graph-cards {
+  margin-top: 20px;
+}
+.right #overview .content .row.graph-cards .col-sm-4 div {
+  background: white;
+  padding: 15px;
+}
+.right #overview .content .row.graph-cards .col-sm-4 div h4,
+.right #overview .content .row.graph-cards .col-sm-4 div h2 {
+  color: #354052;
+}
+.right #overview .content .row.graph-cards .col-sm-4 div h4 small,
+.right #overview .content .row.graph-cards .col-sm-4 div h2 small {
+  color: white;
+  font-size: small;
+}
+.right #overview .content .row.graph-cards .col-sm-4 div h2 {
+  line-height: 85%;
+}
+.right #overview .content .row.graph-cards .col-sm-4 div img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+}
+.right #overview .content .row.graph-cards .col-sm-4:last-child img {
+  height: 220px;
+}
+.right #overview .content .row.project-cards {
+  margin-top: 20px;
+}
+.right #overview .content .row.project-cards .col-sm-3 .card {
+  background: white;
+  padding: 0;
+}
+.right #overview .content .row.project-cards .col-sm-3 .card img {
+  width: 100%;
+}
+.right #overview .content .row.project-cards .col-sm-3 .card h5 {
+  padding: 15px 15px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.right #overview .content .row.project-cards .col-sm-3 .card .row {
+  padding: 0 15px;
+  margin-left: 0;
+  margin-right: 0;
+}
+.right #overview .content .row.project-cards .col-sm-3 .card .row .col-sm-6 {
+  padding: 15px;
+}
+.right #overview .content .row.invoice-task {
+  margin-top: 20px;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice,
+.right #overview .content .row.invoice-task .col-sm-6 .tasks {
+  background: white;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice h5,
+.right #overview .content .row.invoice-task .col-sm-6 .tasks h5 {
+  color: black;
+  padding: 15px;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice h5 small a,
+.right #overview .content .row.invoice-task .col-sm-6 .tasks h5 small a {
+  color: white;
+  font-size: xs-small;
+  margin-top: 5px;
+  display: block;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td,
+.right #overview .content .row.invoice-task .col-sm-6 .tasks .table tbody tr td {
+  font-size: small;
+  border-top-color: #e6e6e6;
+  padding: 5px;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(1), .right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(3) {
+  color: white;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(4) .btn {
+  font-size: xx-small;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(1), .right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(2), .right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(3), .right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td:nth-child(5) {
+  padding-top: 20px;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .invoice .table tbody tr td .checkbox {
+  margin: 0px 0 0;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .tasks .table tbody tr td .checkbox {
+  margin: 0px 0 0 0;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .tasks .table tbody tr td .checkbox:hover label {
+  text-decoration: line-through;
+  color: #999999;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .tasks .table tbody tr td .checkbox:hover label input {
+  opacity: 0.5;
+}
+.right #overview .content .row.invoice-task .col-sm-6 .tasks .table tbody tr td .checkbox label input {
+  margin-top: 2px;
+}
+
+
+.left:hover + .right {
+  margin-left: 215px;
+}
+
+.strike {
+  color: #999999;
+}
+
+hr {
+  border-top: 1px solid #e6e6e6;
+  margin: 10px 0;
+}
+
+.py-15 {
+  padding: 15px 0;
+}
+.vl {
+  border-left: 2px solid #E8E8E8;
+  height: 80px;
+  margin-bottom:-25px;
+  margin-top:-15px;
+}
+.dropdown {
+  float: right;
+  display: block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.card{
+  padding:15px 15px 7px 15px;
+}
+</style>
+</head>
+<body>
+<div class="main">
+  <div class="left" style="background-color:#202020;">
+    <ul>
+      <li class="menu-heading"><img src="images\logo.png"width=20% height=5% style="position: static;"></li>
+      <li class="active" ><a data-toggle="tab" href="#overview"><i class="fa fa-home fa-lg" ></i> Home</a></li>
+      <li><a data-toggle="tab" href="#performance"><i class="fa fa-user-o" aria-hidden="true"></i> Performance</a></li>
+      <li><a data-toggle="tab" href="#analytics"><i class="fa fa-line-chart fa-lg"></i> Analytics</a></li>
+      <li><a data-toggle="tab" href="#landing"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></i> Landing</a></li>
+      <li><a data-toggle="tab" href="#projects"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Projects</a></li>
+     
+      <li><a data-toggle="tab" href="#user-profile"><i class="fa fa-envelope" aria-hidden="true"></i> User Profile</a></li>
+      <li><a data-toggle="tab" href="#candidates"><i class="fa fa-phone" aria-hidden="true"></i> Candidates</a></li>
+      <li><a data-toggle="tab" href="#invoices"><i class="fa fa-cogs" aria-hidden="true"></i> Invoices</a></li>
+      
+      
+     
+    </ul>
+  </div>
+  <div class="right"> 
+    <div class="tab-content">
+      <!-- Overview -->
+      <div id="overview" class="tab-pane fade">
+        <div class="header">
+          <h4>Home</h4>
+          <div class="dropdown">
+          <i class='fa fa-user-circle' style='font-size:30px;'></i>
+          <div class="dropdown-content"style="padding-right:-100px">
+            <a href="#">Link 1</a>
+    <a href="#">Link 2</a>
+    <a href="#">Link 3</a>
+          </div>
+          </div>
+          <i class="fa fa-bell"style="color:#C8C8C8;float:right;padding-right:7px;font-size:20px;margin:5px;"></i>
+         
+          
+ </div>
+        <div class="content">
+          <div class="row project-cards">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class=row>
+                  <div class="col-sm-6">
+                    <h3>Number of Days</h3>
+                  </div>
+                  <div class="col-sm-6">
+                    <h3 style="float:right">0</h3>
+                  </div>
+                </div>
+                <hr style="color: #D0D0D0;">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                
+                <table style="padding-bottom:0px;">
+                  <tr style="border-right: 2px solid black;border-top:2px solid black;border-left: 2px solid black;">
+                    
+                    <th style="border-right: 2px solid black;">Dec 04</th>
+                    <th style="border-right: 2px solid black;">Dec 05</th>
+                    <th style="border-right: 2px solid black;">Dec 06</th>
+                    <th style="border-right: 2px solid black;">Dec 07</th>
+                    <th style="border-right: 2px solid black;">Dec 08</th>
+                    <th style="border-right: 2px solid black;">Dec 09</th>
+                    <th style="border-right: 2px solid black;">Dec 10</th>
+                    
+                  </tr>
+                </table>
+                <br><br>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div>
+                  <p><b>LIVEFEED</b></p><br>
+                   
+            <input class="input-field" type="text"> 
+                  <button type="button" class="btn btn-default"style="background-color:white;"><i class="fa fa-filter" aria-hidden="true"></i></button>
+                  <button type="button" class="btn btn-default disabled">User:xyz@...<i class="fa fa-close"></i></button>
+                  
+                  <input type="text" class="form-control" id="usr" placeholder=""style="width:150px;float:right;">
+                  <i class="fa fa-search icon"style="position:absolute;float:right;padding:10px 0 0 190px;"></i>
+                  <br><br><br><br>
+                  <div style="text-align:center;">
+                  <i class="fa fa-sticky-note-o" aria-hidden="true"style='font-size:220px;'></i><br><br>
+                  <p><b>No notifications yet</b></p><br>
+                  
+                  <p style='color:grey;'>You'll start seeing real time notifications here when your emails are opened ,clicked or replied to.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="invoice">
+            <div class="col-sm-6">
+              <div class="card">
+                
+                <div class=row>
+                  <div class="col-sm-6">
+                    <p><i class="fa fa-clock-o"></i>EMAILS SCHEDULED</p>
+                  </div>
+                  <div class="col-sm-6">
+                    <h3 style="float:right">0</h3>
+                  </div>
+                </div>
+                <hr style="color: #D0D0D0;">
+                <br>
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h3>0</h3>
+                    <p>Today</p>
+                  </div>
+                  <div class="col-sm-3">
+                    <h3>0</h3>
+                    <p>Upcoming</p>
+                  </div>
+                  
+                  <div class="col-sm-3">
+                    <h3>0</h3>
+                    <p>Waiting</p>
+                  </div>
+                  <div class="col-sm-1"><div class="vl"></div></div>
+                  <div class="col-sm-2">
+                    
+                    <h3>0</h3>
+                    <p>Errors</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+</div>
+<br>
+          
+            <div class="col-sm-6">
+              <div class="invoice">
+                  <div class="card">
+                    <div class=row>
+                      <div class="col-sm-6">
+                        <p><i class="fa fa-calendar"></i>TASKS SCHEDULED</p>
+                      </div>
+                      <div class="col-sm-6">
+                        <h3 style="float:right">5</h3>
+                      </div>
+                    </div>
+                    <hr style="color: #D0D0D0;">
+                    <br>
+                    <div class="row">
+                      <div class="col-sm-3">
+                        <h3>0</h3>
+                        <p>Today</p>
+                      </div>
+                      <div class="col-sm-3">
+                        <h3>0</h3>
+                        <p>Upcoming</p>
+                      </div>
+                      
+                      <div class="col-sm-3">
+                        <h3>0</h3>
+                        <p>Waiting</p>
+                      </div>
+                      <div class="col-sm-1"><div class="vl"></div></div>
+                      <div class="col-sm-2">
+                        
+                        <h3>5</h3>
+                        <p>Overdue</p>
+                      </div>
+                </div>
+              
+            </div>
+            </div>
+            
+
+        </div>
+      </div><br>
+      <div class="col-sm-6">
+        <div class="invoice">
+            <div class="card">
+              <div class=row>
+                <div class="col-sm-6">
+                  <p><i class="fa fa-phone"></i>CALLS SCHEDULED</p>
+                </div>
+                <div class="col-sm-6">
+                  <h3 style="float:right">0</h3>
+                </div>
+              </div>
+              <hr style="color: #D0D0D0;">
+              <br>
+              <div class="row">
+                <div class="col-sm-3">
+                  <h3>0</h3>
+                  <p>Today</p>
+                </div>
+                <div class="col-sm-3">
+                  <h3>0</h3>
+                  <p>Upcoming</p>
+                </div>
+                
+                <div class="col-sm-3">
+                  <h3>0</h3>
+                  <p>Waiting</p>
+                </div>
+                <div class="col-sm-1"><div class="vl"></div></div>
+                <div class="col-sm-2">
+                  
+                  <h3>0</h3>
+                  <p>Errors</p>
+                </div>
+          </div>
+        
+      </div>
+</body>
+</html>
